@@ -11,20 +11,21 @@ This project was developed for the **EE604 Image Processing course**. It is inte
 - Supports left click, click-and-drag, right click, scrolling, and keyboard-based zoom.
 - Captures timestamped screenshots using a gesture.
 - Brightens dark camera frames with adaptive gamma correction before hand detection.
+- Rejects false pinches when the thumb rests on a folded finger, by checking that the touched fingertip reaches past its knuckle (fold gate).
 - Smooths pointer motion and stabilizes gesture recognition to reduce jitter and accidental actions.
 - Displays a live camera preview with the recognized gesture and estimated FPS.
 - Logs recognized actions and their measured latency to a CSV file.
 
 ## Requirements
 
-- Use python 3.9 to 3.12 (use a Python version supported by the installed MediaPipe release).
+- Python 3.9 to 3.12, with MediaPipe 0.10.21. Newer MediaPipe releases removed the `mp.solutions` API that this program uses, and version 0.10.21 does not install on Python 3.13 or later.
 - A webcam connected to the computer.
 - A desktop session where the application is permitted to control the mouse and keyboard.
 
 Python dependencies:
 
 - OpenCV (`opencv-python`)
-- MediaPipe
+- MediaPipe 0.10.21
 - NumPy
 - PyAutoGUI
 
@@ -36,13 +37,13 @@ Open PowerShell in the project directory and create a virtual environment:
 py -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install --upgrade pip
-python -m pip install opencv-python mediapipe numpy pyautogui
+python -m pip install opencv-python mediapipe==0.10.21 numpy pyautogui
 ```
 
 If PowerShell prevents activating the virtual environment, you can invoke its Python directly instead:
 
 ```powershell
-.\.venv\Scripts\python.exe -m pip install opencv-python mediapipe numpy pyautogui
+.\.venv\Scripts\python.exe -m pip install opencv-python mediapipe==0.10.21 numpy pyautogui
 ```
 
 ## Run
@@ -141,3 +142,7 @@ The program controls the real desktop. Keep the camera preview visible, use deli
 - Hand pose, camera placement, lighting, and individual differences can affect recognition.
 - The default camera index, frame size, and gestures may need adjustment for a particular computer or use environment.
 - Screenshot and gesture-log output paths are relative to the working directory from which the script is launched.
+
+## Experiments and report
+
+The `experiments` folder contains the scripts that produce every number and figure in Section 4 of the project report. See `experiments/README.md` for instructions.
