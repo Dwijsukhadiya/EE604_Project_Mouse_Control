@@ -2,7 +2,7 @@
 
 A webcam-based virtual mouse that uses computer vision and hand landmarks to control the desktop pointer. The project is implemented in Python with OpenCV and MediaPipe Hands, with PyAutoGUI translating recognized gestures into mouse and keyboard actions.
 
-This project was developed for the **EE604 Computer Vision course**. It is intended as a course project and experimentation tool; it does not require a separate hardware controller beyond a webcam.
+This project was developed for the **EE604 Image Processing course**. It is intended as a course project and experimentation tool; it does not require a separate hardware controller beyond a webcam.
 
 ## Features
 
@@ -17,7 +17,7 @@ This project was developed for the **EE604 Computer Vision course**. It is inten
 
 ## Requirements
 
-- Python 3.9 or newer (use a Python version supported by the installed MediaPipe release).
+- Use python 3.9 to 3.12 (use a Python version supported by the installed MediaPipe release).
 - A webcam connected to the computer.
 - A desktop session where the application is permitted to control the mouse and keyboard.
 
